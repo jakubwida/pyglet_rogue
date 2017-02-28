@@ -2,11 +2,10 @@ import pyglet
 from pyglet.window import key
 
 class Game:
-	def __init__(self,initial_scene):
+	def __init__(self):
 		self.game_window = pyglet.window.Window(800, 600,vsync=False) 
 		pyglet.clock.set_fps_limit(60)
 		self.fps_display = pyglet.clock.ClockDisplay(format='%(fps).2f fps')
-		self.set_scene(initial_scene)
 		self.game_window.on_draw = self.on_draw
 
 
@@ -20,7 +19,8 @@ class Game:
 		self.scene.set_game(self)
 		#sets scene and sets its game
 
-	def start(self):
+	def start(self,initial_scene):
+		self.set_scene(initial_scene)
 		pyglet.clock.schedule_interval(self.scene.update, 0.017)
 		pyglet.app.run()
 		

@@ -12,6 +12,9 @@ class Game:
 		self.keys = key.KeyStateHandler()
 		self.game_window.push_handlers(self.keys)
 
+		pyglet.resource.path= ['resources']
+		pyglet.resource.reindex()
+
 		#requires initial scene to run
 	
 	def set_scene(self,new_scene):

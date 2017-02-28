@@ -8,4 +8,11 @@ entity bedzie zawierac 3 rzeczy:
 	visuals - obiekt wyswietlany, np sprite, ktoreu zadaje sie animacje
 	physics - obiekt fizyki pymunka
 
-dodatkowo obiekt visuals powinien miec dostep do ładowania zasobow
+!nie trzeba pisac resource loadera, pyglet ma wlasny wbudowany caching
+
+
+mały remangling:
+gra w funkcji start ma miec scene poczatkowa
+w konstruktorze Scene będzie gra do której ta jest podpinana
+w konstruktorze Layer jest scena do ktorej ta jest podpinana
+w konstruktorze Actor jest Layer na ktrym on jest

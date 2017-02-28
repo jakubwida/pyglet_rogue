@@ -1,0 +1,11 @@
+Actor->PhysicsActor->Entity
+	 ->Effect
+//te powyzsze klasy odpowiadaja za efekty i obiekty w swiecie gry
+effect jest prosty - ma pojawic sie na chwile na ekranie, nie ma kolizji, znika po chwili
+	ma tylko visuals
+entity bedzie zawierac 3 rzeczy:
+	kontroler- ai, lub sterowany przez czlowieka
+	visuals - obiekt wyswietlany, np sprite, ktoreu zadaje sie animacje
+	physics - obiekt fizyki pymunka
+
+dodatkowo obiekt visuals powinien miec dostep do ładowania zasobow
