@@ -6,8 +6,11 @@ import pymunk
 
 class PhysicsActor(Actor):
 
-	def __init__(self):
-		super().__init__()
+	def __init__(self,layer):
+		super().__init__(layer)
+		self.initialise_physics()
+	
+	def initialise_physics(self):
 		self.mass = 0.3
 		self.radius = 25
 		self.inertia = pymunk.moment_for_circle(self.mass/5, 0, self.radius, (0,0))
@@ -18,12 +21,10 @@ class PhysicsActor(Actor):
 		self.pymunk_body.position = self.x, self.y
 		self.pymunk_shape= pymunk.Circle(self.pymunk_body, self.radius, (0,0))
 		self.pymunk_shape.elasticity = 0.95
-
-	def set_scene(self,scene):
-		super().set_scene(scene)
-		self.scene.space.add(self.pymunk_body, self.pymunk_shape)
+		
 		self.keys = self.scene.game.keys
-		print("phys actor scene set")
+		
+		self.scene.space.add(self.pymunk_body, self.pymunk_shape)
 
 	def update(self,dt):
 		print(self.keys)

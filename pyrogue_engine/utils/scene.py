@@ -1,10 +1,11 @@
 import pyglet
 import pymunk
 
+
 class Scene:
-	def __init__(self):
+	def __init__(self,game):
 		self.layers=[]
-		self.game = None
+		self.game = game
 		self.space = pymunk.Space()
 		self.space.damping=0.001
 		self.space.gravity = (0.0, 0.0)
@@ -14,7 +15,6 @@ class Scene:
 
 	def add_layer(self,layer):
 		self.layers.append(layer)
-		layer.set_scene(self)
 
 	
 	def draw(self):

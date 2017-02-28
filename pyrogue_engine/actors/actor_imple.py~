@@ -1,5 +1,5 @@
 from pyrogue_engine.actors.physics_actor import PhysicsActor
-from pyglet.window import key
+
 import pyglet
 
 class ActorImple(PhysicsActor):

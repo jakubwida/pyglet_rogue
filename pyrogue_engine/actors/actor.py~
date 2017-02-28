@@ -1,15 +1,10 @@
 class Actor:
-	def __init__(self):
-		self.layer= None
-		self.scene= None
+	def __init__(self,layer):
+		self.layer= layer
+		self.scene= layer.scene
 		self.y=0
 		self.x=0
 	
-	def set_layer(self,layer):
-		self.layer= layer
-
-	def set_scene(self,scene):
-		self.scene = scene 
 	
 	def delete_self(self):
 		self.layer.remove_actor(self)
