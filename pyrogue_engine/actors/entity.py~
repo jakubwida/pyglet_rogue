@@ -1,0 +1,23 @@
+from pyrogue_engine.actors.actor import Actor
+from pymunk import Vec2d
+import math, sys, random
+from pyglet.window import key
+import pymunk
+
+from pyrogue_engine.actors.actor_utils.physics_object import *
+from pyrogue_engine.actors.actor_utils.controller import *
+class Entity(Actor):
+
+	def __init__(self,layer):
+		super().__init__(layer)
+		self.physics_object = PhysicsObject(self)
+		self.controller = Controller(self.physics_object)
+		self.displayable = Displayable(self)
+		
+	
+	def update(self,dt):
+		self.controller.update(dt)
+		self.displayable.update(dt)
+	def draw(self):
+		self.displayable.draw()
+
