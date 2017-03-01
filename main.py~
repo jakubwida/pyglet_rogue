@@ -8,11 +8,8 @@ game = Game()
 scene = Scene(game)
 
 layer = Layer(scene)
-actor = ActorImple()
+actor = ActorImple(layer)
 
-
-
-layer.add_actor(actor)
 
 game.start(scene)
 

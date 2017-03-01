@@ -6,9 +6,9 @@ class Scene:
 	def __init__(self,game):
 		self.layers=[]
 		self.game = game
-		self.space = pymunk.Space()
-		self.space.damping=0.001
-		self.space.gravity = (0.0, 0.0)
+		#self.space = pymunk.Space()
+		#self.space.damping=0.001
+		#self.space.gravity = (0.0, 0.0)
 
 	def set_game(self,game):
 		self.game = game
@@ -24,7 +24,7 @@ class Scene:
 	def update(self,dt):
 		for layer in self.layers:
 			layer.update(dt)
-		self.space.step(dt)
+		#self.space.step(dt)
 		
 
 
