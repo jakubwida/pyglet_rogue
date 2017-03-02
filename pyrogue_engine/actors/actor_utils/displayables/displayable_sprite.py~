@@ -1,10 +1,11 @@
-from pyrogue.actors.actor_utils.displayable import *
+from pyrogue_engine.actors.actor_utils.displayable import *
 
 class DisplayableSprite(Displayable):
 	def __init__(self,actor):
 		super().__init__(actor)
 		self.image = pyglet.resource.image("testimage.png")
 		self.sprite = pyglet.sprite.Sprite(img=self.image,x=0,y=0)
+		self.sprite.scale=2.0
 	def draw(self):
 		super().draw()
 		self.sprite.draw()

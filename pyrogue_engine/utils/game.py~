@@ -1,5 +1,6 @@
 import pyglet 
 from pyglet.window import key
+from pyglet.gl import *
 
 class Game:
 	def __init__(self):
@@ -8,9 +9,13 @@ class Game:
 		self.fps_display = pyglet.clock.ClockDisplay(format='%(fps).2f fps')
 		self.game_window.on_draw = self.on_draw
 
+		glScalef(4.0, 4.0, 4.0)
 
 		self.keys = key.KeyStateHandler()
 		self.game_window.push_handlers(self.keys)
+
+		pyglet.resource.path= ['resources']
+		pyglet.resource.reindex()
 
 		#requires initial scene to run
 	
@@ -29,6 +34,11 @@ class Game:
 
 	def on_draw(self):
 		self.game_window.clear()
+
+		
 		self.scene.draw()
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST) 
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
 		self.fps_display.draw()
 		self.game_window.flip()
+		

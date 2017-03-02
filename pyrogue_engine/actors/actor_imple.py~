@@ -2,6 +2,8 @@ from pyrogue_engine.actors.entity import Entity
 from pyrogue_engine.actors.actor_utils.controllers.player_controller import *
 from pyrogue_engine.actors.actor_utils.displayables.displayable_sprite import DisplayableSprite
 import pyglet
+from pyglet.window import mouse
+
 
 class ActorImple(Entity):
 	def __init__(self,layer):
@@ -10,6 +12,7 @@ class ActorImple(Entity):
 		#self.image = pyglet.resource.image("testimage.png")
 		#self.sprite = pyglet.sprite.Sprite(img=self.image,x=0,y=0)
 		self.displayable= DisplayableSprite(self)
+		self.scene.game.game_window.on_mouse_press = self.on_mouse_press
 	def update(self,dt):
 		super().update(dt)
 		#self.sprite.x=self.x
@@ -18,3 +21,7 @@ class ActorImple(Entity):
 	def draw(self):
 		super().draw()
 		#self.sprite.draw()
+
+	def on_mouse_press(self,x, y, button, modifiers):
+		if button == mouse.LEFT:
+			print("mouse: x:",x," y:",y," actor: x:",self.x," y:",self.y, "  pymunk physics for actor:",self.body.position)
