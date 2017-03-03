@@ -23,6 +23,8 @@ class Game:
 		#requires initial scene to run
 	
 	def set_scene(self,new_scene):
+		if self.scene !=None:
+			pyglet.clock.unschedule(self.scene.update)
 		self.scene=new_scene
 		self.scene.set_game(self)
 		pyglet.clock.schedule_interval(self.scene.update, 0.017)
@@ -30,7 +32,7 @@ class Game:
 
 	def start(self,initial_scene):
 		self.set_scene(initial_scene)
-		pyglet.clock.schedule_interval(self.scene.update, 0.017)
+		#pyglet.clock.schedule_interval(self.scene.update, 0.017)
 		pyglet.app.run()
 		
 		

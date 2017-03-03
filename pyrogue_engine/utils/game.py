@@ -23,6 +23,10 @@ class Game:
 		#requires initial scene to run
 	
 	def set_scene(self,new_scene):
+		try:
+			if self.scene!=None:
+				pyglet.clock.unschedule(self.scene.update)
+		except AttributeError: pass
 		self.scene=new_scene
 		self.scene.set_game(self)
 		pyglet.clock.schedule_interval(self.scene.update, 0.017)
