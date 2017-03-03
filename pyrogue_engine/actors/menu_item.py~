@@ -16,7 +16,11 @@ class MenuItem(Actor):
                           font_size=36,x=self.x,y=self.y)
 		self.width = len(self.text)*self.label.font_size
 		self.height = self.label.font_size
-	def set_function(self,function)
+		self.unlocked=True
+	def set_unlocked(self,unlocked):
+		self.unlocked = unlocked
+
+	def set_function(self,function):
 		self.function_on_click = function
 	def print_self(self):
 		print("was clicked")
@@ -26,7 +30,7 @@ class MenuItem(Actor):
 		xcheck_2 = x < (self.width + self.x)
 		ycheck_1 = y > self.y 		
 		ycheck_2 = y < (self.width + self.y)
-		if (xcheck_1 and xcheck_2 and ycheck_1 and ycheck_2):
+		if (xcheck_1 and xcheck_2 and ycheck_1 and ycheck_2 and self.unlocked):
 			return True
 		else:
 			return False
