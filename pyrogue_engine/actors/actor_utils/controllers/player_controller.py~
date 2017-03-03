@@ -1,5 +1,6 @@
 from pyrogue_engine.actors.actor_utils.controller import *
 from pyglet.window import key
+from pymunk import Vec2d
 
 class PlayerController(Controller):
 	def __init__(self,physics_object):
@@ -7,6 +8,7 @@ class PlayerController(Controller):
 		self.keys = physics_object.actor.scene.game.keys
 
 	def update(self,dt):
+		print("wat")
 		super().update(dt)
 		if self.keys[key.UP]:
 			self.physics_object.pymunk_body.apply_force_at_local_point(Vec2d((0.0,1000.0)),(0.0,0.0))

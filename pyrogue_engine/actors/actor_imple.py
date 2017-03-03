@@ -12,7 +12,7 @@ class ActorImple(Entity):
 		#self.image = pyglet.resource.image("testimage.png")
 		#self.sprite = pyglet.sprite.Sprite(img=self.image,x=0,y=0)
 		self.displayable= DisplayableSprite(self)
-		self.scene.game.game_window.on_mouse_press = self.on_mouse_press
+		#self.scene.game.game_window.on_mouse_press = self.on_mouse_press
 	def update(self,dt):
 		super().update(dt)
 		#self.sprite.x=self.x

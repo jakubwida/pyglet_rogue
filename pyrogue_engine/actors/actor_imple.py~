@@ -24,4 +24,4 @@ class ActorImple(Entity):
 
 	def on_mouse_press(self,x, y, button, modifiers):
 		if button == mouse.LEFT:
-			print("mouse: x:",x," y:",y," actor: x:",self.x," y:",self.y, "  pymunk physics for actor:",self.body.position)
+			print("mouse: x:",x," y:",y," actor: x:",self.x," y:",self.y, "  pymunk physics for actor:",self.physics_object.pymunk_body.position)
