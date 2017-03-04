@@ -12,6 +12,7 @@ class Game:
 		self.fps_display = pyglet.clock.ClockDisplay(format='%(fps).2f fps')
 		self.game_window.on_draw = self.on_draw
 		self.game_window.on_mouse_press = self.on_mouse_press
+		self.game_window.on_mouse_motion = self.on_mouse_motion
 		glScalef(self.win_scale, self.win_scale, self.win_scale)
 
 		self.keys = key.KeyStateHandler()
@@ -20,6 +21,9 @@ class Game:
 		pyglet.resource.path= ['resources']
 		pyglet.resource.reindex()
 
+		self.mouse_x=0.0
+		self.mouse_y=0.0
+		
 		#requires initial scene to run
 	
 	def set_scene(self,new_scene):
@@ -54,4 +58,7 @@ class Game:
 		for i in self.scene.clickables:
 			if i.is_coord_in_box(x,y):
 				i.on_click()
-
+	# in screen coords
+	def on_mouse_motion(self,x,y,dx,dy)
+		self.mouse_x=x
+		self.mouse_y=y
