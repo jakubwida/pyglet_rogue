@@ -63,5 +63,5 @@ class Game:
 		self.mouse_x=x
 		self.mouse_y=y
 		self.game_mouse_x=x/self.win_scale
-		self.game_mouse_x=x/self.win_scale
+		self.game_mouse_y=y/self.win_scale
 

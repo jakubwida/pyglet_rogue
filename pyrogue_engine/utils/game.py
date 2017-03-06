@@ -23,6 +23,8 @@ class Game:
 
 		self.mouse_x=0.0
 		self.mouse_y=0.0
+		self.game_mouse_x=0.0
+		self.game_mouse_y=0.0
 		
 		#requires initial scene to run
 	
